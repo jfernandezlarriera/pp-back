@@ -1,5 +1,5 @@
 const bodyParser = require('body-parser');
-const cors = require('@robertoachar/express-cors');
+const cors = require('cors');
 const express = require('express');
 const helmet = require('helmet');
 const morgan = require('morgan');

@@ -14,10 +14,10 @@ const {
 } = require('./user.controller');
 
 router.use((req, res, next) => {
-  const token = req.headers['access-token'];
+  const token = req.headers['Token'];
 
   if (token) {
-    jwt.verify(token, config.SECRET, (err, decoded) => {      
+      jwt.verify(token, config.SECRET, (err, decoded) => {      
       if (err) {
         return res.json({ mensaje: 'Invalid token.' });    
       } else {
@@ -26,9 +26,10 @@ router.use((req, res, next) => {
       }
     });
   } else {
-    res.send({ 
-        mensaje: 'Invalid token.' 
-    });
+    /*res.send({ 
+        mensaje: 'No token.' 
+    });*/
+    next();
   }
 });
 
